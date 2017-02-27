@@ -9,9 +9,9 @@ export default {
   },
   sidebar: function (sidebar) {
     sidebar.push({
-      text: '多说评论',
+      text: '百度搜索',
       icon: 'fa fa-comment',
-      uri: '/duoshuo'
+      uri: '/search'
     })
   }
 }
