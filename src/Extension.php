@@ -13,7 +13,6 @@ use Notadd\Baidu\Listeners\CsrfTokenRegister;
 use Notadd\Baidu\Listeners\RouteRegister;
 use Notadd\Foundation\Extension\Abstracts\Extension as AbstractExtension;
 
-
 /**
  * Class Extension.
  */
@@ -29,6 +28,36 @@ class Extension extends AbstractExtension
         $this->publishes([
             realpath(__DIR__ . '/../resources/mixes/administration/dist/assets/extensions/baidu') => public_path('assets/extensions/baidu'),
         ], 'public');
+    }
+
+    /**
+     * Description of extension
+     *
+     * @return string
+     */
+    public static function description()
+    {
+        return 'Extension of Baidu';
+    }
+
+    /**
+     * Installer for extension.
+     *
+     * @return string
+     */
+    public static function install()
+    {
+        return '';
+    }
+
+    /**
+     * Name of extension.
+     *
+     * @return string
+     */
+    public static function name()
+    {
+        return 'notadd/baidu';
     }
 
     /**
@@ -50,5 +79,25 @@ class Extension extends AbstractExtension
     public static function stylesheet()
     {
         return [];
+    }
+
+    /**
+     * Uninstall for extension.
+     *
+     * @return string
+     */
+    public static function uninstall()
+    {
+        return '';
+    }
+
+    /**
+     * Version of extension.
+     *
+     * @return string
+     */
+    public static function version()
+    {
+        return '0.1.0';
     }
 }
