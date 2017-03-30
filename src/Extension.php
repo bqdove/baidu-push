@@ -43,11 +43,13 @@ class Extension extends AbstractExtension
     /**
      * Installer for extension.
      *
-     * @return string
+     * @return \Closure
      */
     public static function install()
     {
-        return '';
+        return function () {
+            return true;
+        };
     }
 
     /**
@@ -84,11 +86,13 @@ class Extension extends AbstractExtension
     /**
      * Uninstall for extension.
      *
-     * @return string
+     * @return \Closure
      */
     public static function uninstall()
     {
-        return '';
+        return function () {
+            return true;
+        };
     }
 
     /**
