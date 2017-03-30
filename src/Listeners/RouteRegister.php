@@ -9,12 +9,12 @@
 namespace Notadd\Baidu\Listeners;
 
 use Notadd\Baidu\Controllers\BaiduController;
-use Notadd\Foundation\Routing\Abstracts\RouteRegistrar as AbstractRouteRegistrar;
+use Notadd\Foundation\Routing\Abstracts\RouteRegister as AbstractRouteRegister;
 
 /**
  * Class RouteRegister.
  */
-class RouteRegister extends AbstractRouteRegistrar
+class RouteRegister extends AbstractRouteRegister
 {
     /**
      * Handle Route Registrar.
