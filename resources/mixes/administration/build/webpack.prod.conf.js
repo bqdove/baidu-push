@@ -19,7 +19,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/extension.js'),
+    filename: utils.assetsPath('js/extension.min.js'),
     library: 'notadd/baidu',
     libraryTarget: "umd"
   },
@@ -33,7 +33,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       }
     }),
     new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].css')
+      filename: utils.assetsPath('css/extension.min.css')
     }),
     new OptimizeCSSPlugin()
   ]
