@@ -1,58 +1,40 @@
 <script>
     export default {
-        computed: {
-            enabled: {
-                get () {
-                    return this.$store.state.setting.hasOwnProperty('baidu.enabled') ? this.$store.state.setting['baidu.enabled'] : '0';
-                },
-                set (value) {
-                    this.$store.commit('single', {
-                        key: 'baidu.enabled',
-                        value: value,
-                    });
-                },
-            },
-            token: {
-                get () {
-                    return this.$store.state.setting.hasOwnProperty('baidu.token') ? this.$store.state.setting['baidu.token'] : '';
-                },
-                set (value) {
-                    this.$store.commit('single', {
-                        key: 'baidu.token',
-                        value: value
-                    });
-                },
-            },
+        data() {
+            return {
+                enabled: true,
+                token: '',
+            };
         },
         methods: {
-            submit: function () {
-                let _this = this;
-                _this.$validator.validateAll();
-                if (_this.errors.any()) {
+            submit() {
+                const self = this;
+                self.$validator.validateAll();
+                if (self.errors.any()) {
                     return false;
                 }
-                _this.$jquery('button.btn-submit').prop('disabled', true);
-                _this.$jquery('button.btn-submit').text('提交中...');
-                _this.$http.post(window.api + '/baidu/configuration', {
-                    enabled: _this.enabled,
-                    token: _this.token
+                self.$jquery('button.btn-submit').prop('disabled', true);
+                self.$jquery('button.btn-submit').text('提交中...');
+                self.$http.post(`${window.api}/baidu/configuration`, {
+                    enabled: self.enabled,
+                    token: self.token,
                 }).then(response => {
-                    _this.$store.commit('setting', response.body.data);
-                    _this.$store.commit('message', {
+                    self.$store.commit('setting', response.body.data);
+                    self.$store.commit('message', {
                         show: true,
                         type: 'notice',
-                        text: '更新百度搜索推送设置成功！'
+                        text: '更新百度搜索推送设置成功！',
                     });
-                    _this.$jquery('button.btn-submit').prop('disabled', false);
-                    _this.$jquery('button.btn-submit').text('保存');
+                    self.$jquery('button.btn-submit').prop('disabled', false);
+                    self.$jquery('button.btn-submit').text('保存');
                 }, response => {
                     console.log(response.body);
-                    window.alert('更新设置失败！');
-                    _this.$jquery('button.btn-submit').prop('disabled', false);
-                    _this.$jquery('button.btn-submit').text('保存');
+                    self.$jquery('button.btn-submit').prop('disabled', false);
+                    self.$jquery('button.btn-submit').text('保存');
                 });
+                return true;
             },
-            sync: function () {
+            sync() {
             },
         },
     };
