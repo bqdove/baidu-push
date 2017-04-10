@@ -70,7 +70,7 @@ class Extension extends AbstractExtension
      */
     public static function script()
     {
-        return asset('assets/extensions/baidu/js/extension.js');
+        return asset('assets/extensions/baidu/js/extension.min.js');
     }
 
     /**
@@ -80,7 +80,9 @@ class Extension extends AbstractExtension
      */
     public static function stylesheet()
     {
-        return [];
+        return [
+            asset('assets/extensions/baidu/css/extension.min.css'),
+        ];
     }
 
     /**
