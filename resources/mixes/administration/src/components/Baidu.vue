@@ -1,5 +1,17 @@
 <script>
+    import injection from '../helpers/injection';
+
     export default {
+        beforeRouteEnter(to, from, next) {
+            injection.http.post(`${window.api}/baidu/get`).then(response => {
+                const data = response.data.data;
+                next(vm => {
+                    vm.enabled = data.enabled;
+                    vm.token = data.token;
+                    injection.sidebar.active('setting');
+                });
+            });
+        },
         data() {
             return {
                 enabled: true,
@@ -60,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group" :class="{ 'has-error': errors.has('token') }">
+                <div class="form-group">
                     <label class="col-sm-1 control-label">Token</label>
                     <div class="col-sm-3">
                         <input name="token" type="text" class="form-control" placeholder="请输入Token" v-model="token"
@@ -68,13 +80,13 @@
                     </div>
                     <div class="col-sm-8">
                         <span class="help-block">百度提供的授权token</span>
-                        <span class="help-block" v-show="errors.has('domain')">Token不能为空</span>
+                        <span class="help-block">Token不能为空</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="box-footer">
-            <button class="btn btn-primary btn-submit" :disabled="errors.any()" @click="submit">保存</button>
+            <button class="btn btn-primary btn-submit" @click="submit">保存</button>
         </div>
     </div>
 </template>
