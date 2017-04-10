@@ -15,7 +15,7 @@ use Notadd\Foundation\Setting\Contracts\SettingsRepository;
 /**
  * Class ConfigurationHandler.
  */
-class ConfigurationHandler extends AbstractSetHandler
+class SetHandler extends AbstractSetHandler
 {
     /**
      * @var \Notadd\Foundation\Setting\Contracts\SettingsRepository

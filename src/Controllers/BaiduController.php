@@ -8,7 +8,8 @@
  */
 namespace Notadd\Baidu\Controllers;
 
-use Notadd\Baidu\Handlers\ConfigurationHandler;
+use Notadd\Baidu\Handlers\GetHandler;
+use Notadd\Baidu\Handlers\SetHandler;
 use Notadd\Foundation\Routing\Abstracts\Controller;
 
 /**
@@ -17,14 +18,26 @@ use Notadd\Foundation\Routing\Abstracts\Controller;
 class BaiduController extends Controller
 {
     /**
-     * Configuration handler.
+     * Get handler.
      *
-     * @param \Notadd\Baidu\Handlers\ConfigurationHandler $handler
+     * @param \Notadd\Baidu\Handlers\GetHandler $handler
+     *
+     * @return \Notadd\Foundation\Passport\Responses\ApiResponse|\Psr\Http\Message\ResponseInterface|\Zend\Diactoros\Response
+     */
+    public function get(GetHandler $handler)
+    {
+        return $handler->toResponse()->generateHttpResponse();
+    }
+
+    /**
+     * Set handler.
+     *
+     * @param \Notadd\Baidu\Handlers\SetHandler $handler
      *
      * @return \Notadd\Foundation\Passport\Responses\ApiResponse|\Psr\Http\Message\ResponseInterface|\Zend\Diactoros\Response
      * @throws \Exception
      */
-    public function configuration(ConfigurationHandler $handler)
+    public function set(SetHandler $handler)
     {
         return $handler->toResponse()->generateHttpResponse();
     }

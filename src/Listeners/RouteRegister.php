@@ -22,7 +22,8 @@ class RouteRegister extends AbstractRouteRegister
     public function handle()
     {
         $this->router->group(['middleware' => ['auth:api', 'cross', 'web'], 'prefix' => 'api/baidu'], function () {
-            $this->router->post('configuration', BaiduController::class . '@configuration');
+            $this->router->post('get', BaiduController::class . '@get');
+            $this->router->post('set', BaiduController::class . '@set');
         });
     }
 }
