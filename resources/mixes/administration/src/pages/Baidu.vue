@@ -26,11 +26,12 @@
                         {
                             required: true,
                             type: 'string',
-                            message: 'Token不能为空',
+                            message: injection.trans('baidu.setting.opinions.token.error'),
                             trigger: 'change',
                         },
                     ],
                 },
+                trans: injection.trans,
             };
         },
         methods: {
@@ -41,7 +42,7 @@
                     if (valid) {
                         self.$http.post(`${window.api}/baidu/set`, self.form).then(() => {
                             self.$notice.open({
-                                title: '更新百度推送推送设置成功！',
+                                title: injection.trans('baidu.setting.success'),
                             });
                         }).finally(() => {
                             self.loading = false;
@@ -59,22 +60,22 @@
 </script>
 <template>
     <card>
-        <p slot="title">全局设置</p>
+        <p slot="title">{{ trans('baidu.setting.title') }}</p>
         <i-form :label-width="200" :model="form" ref="form" :rules="rules">
             <row>
                 <i-col span="14">
-                    <form-item label="站点开启">
+                    <form-item :label="trans('baidu.setting.opinions.open.label')">
                         <i-switch v-model="form.enabled" size="large">
-                            <span slot="open">开启</span>
-                            <span slot="close">关闭</span>
+                            <span slot="open">{{ trans('baidu.setting.opinions.open.open') }}</span>
+                            <span slot="close">{{ trans('baidu.setting.opinions.open.close') }}</span>
                         </i-switch>
                     </form-item>
                 </i-col>
             </row>
             <row>
                 <i-col span="14">
-                    <form-item label="Token" prop="token">
-                        <i-input placeholder="请输入Token" v-model="form.token"></i-input>
+                    <form-item :label="trans('baidu.setting.opinions.token.label')" prop="token">
+                        <i-input :placeholder="trans('baidu.setting.opinions.token.placeholder')" v-model="form.token"></i-input>
                     </form-item>
                 </i-col>
             </row>
