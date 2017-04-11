@@ -25,6 +25,7 @@ class Extension extends AbstractExtension
     {
         $this->app->make(Dispatcher::class)->subscribe(CsrfTokenRegister::class);
         $this->app->make(Dispatcher::class)->subscribe(RouteRegister::class);
+        $this->loadTranslationsFrom(realpath(__DIR__ . '/../resources/translations'), 'baidu');
         $this->publishes([
             realpath(__DIR__ . '/../resources/mixes/administration/dist/assets/extensions/baidu') => public_path('assets/extensions/baidu'),
         ], 'public');
