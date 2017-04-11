@@ -1,6 +1,6 @@
 {
-    "name": "notadd/baidu",
-    "description": "Notadd Extension for baidu.",
+    "name": "notadd/baidu-push",
+    "description": "Notadd Extension for baidu push.",
     "type": "notadd-extension",
     "keywords": ["notadd", "baidu", "extension"],
     "homepage": "https://notadd.com",

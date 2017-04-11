@@ -27,7 +27,7 @@ class Extension extends AbstractExtension
         $this->app->make(Dispatcher::class)->subscribe(RouteRegister::class);
         $this->loadTranslationsFrom(realpath(__DIR__ . '/../resources/translations'), 'baidu');
         $this->publishes([
-            realpath(__DIR__ . '/../resources/mixes/administration/dist/assets/extensions/baidu') => public_path('assets/extensions/baidu'),
+            realpath(__DIR__ . '/../resources/mixes/administration/dist/assets/extensions/baidu-push') => public_path('assets/extensions/baidu-push'),
         ], 'public');
     }
 
@@ -60,7 +60,7 @@ class Extension extends AbstractExtension
      */
     public static function name()
     {
-        return 'notadd/baidu';
+        return 'notadd/baidu-push';
     }
 
     /**
@@ -71,7 +71,7 @@ class Extension extends AbstractExtension
      */
     public static function script()
     {
-        return asset('assets/extensions/baidu/js/extension.min.js');
+        return asset('assets/extensions/baidu-push/js/extension.min.js');
     }
 
     /**
@@ -81,9 +81,7 @@ class Extension extends AbstractExtension
      */
     public static function stylesheet()
     {
-        return [
-            asset('assets/extensions/baidu/css/extension.min.css'),
-        ];
+        return [];
     }
 
     /**
