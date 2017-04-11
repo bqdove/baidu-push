@@ -3,11 +3,13 @@
 
     export default {
         beforeRouteEnter(to, from, next) {
+            injection.loading.start();
             injection.http.post(`${window.api}/baidu/get`).then(response => {
                 const data = response.data.data;
                 next(vm => {
                     vm.form.enabled = data.enabled === '1';
                     vm.form.token = data.token;
+                    injection.loading.finish();
                     injection.sidebar.active('setting');
                 });
             });
