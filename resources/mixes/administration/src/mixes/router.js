@@ -1,4 +1,4 @@
-import Baidu from '../components/Baidu.vue';
+import Baidu from '../pages/Baidu.vue';
 
 export default function (injection) {
     injection.useExtensionRoute([
