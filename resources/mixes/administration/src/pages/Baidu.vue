@@ -41,7 +41,7 @@
                     if (valid) {
                         self.$http.post(`${window.api}/baidu/set`, self.form).then(() => {
                             self.$notice.open({
-                                title: '更新百度搜索推送设置成功！',
+                                title: '更新百度推送推送设置成功！',
                             });
                         }).finally(() => {
                             self.loading = false;
