@@ -11,6 +11,7 @@ function install(instance) {
         loading: instance.loading,
         message: instance.message,
         sidebar: instance.sidebar,
+        trans: instance.trans,
     });
     mixinRouter(instance);
     mixinSidebar(instance);
