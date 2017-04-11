@@ -8,6 +8,8 @@
  */
 
 return [
+    'fail'     => '请正确填写设置信息！',
+    'loading'  => '正在提交…',
     'opinions' => [
         'open'  => [
             'close' => '关闭',
@@ -21,5 +23,6 @@ return [
         ],
     ],
     'success'  => '更新百度推送设置成功！',
+    'submit'   => '确认提交',
     'title'    => '百度推送配置',
 ];

@@ -8,6 +8,8 @@
  */
 
 return [
+    'fail'     => 'Error!',
+    'loading'  => 'Loading…',
     'opinions' => [
         'open'  => [
             'close' => 'Close',
@@ -20,6 +22,7 @@ return [
             'placeholder' => 'Place input token',
         ],
     ],
-    'success' => 'Update settings success',
+    'success'  => 'Update settings success',
+    'submit'   => 'Submit',
     'title'    => 'Setting',
 ];

@@ -50,7 +50,7 @@
                     } else {
                         self.loading = false;
                         self.$notice.error({
-                            title: '请正确填写设置信息！',
+                            title: injection.trans('baidu.setting.fail'),
                         });
                     }
                 });
@@ -83,8 +83,8 @@
                 <i-col span="14">
                     <form-item>
                         <i-button :loading="loading" type="primary" @click.native="submit">
-                            <span v-if="!loading">确认提交</span>
-                            <span v-else>正在提交…</span>
+                            <span v-if="!loading">{{ trans('baidu.setting.submit') }}</span>
+                            <span v-else>{{ trans('baidu.setting.loading') }}</span>
                         </i-button>
                     </form-item>
                 </i-col>
