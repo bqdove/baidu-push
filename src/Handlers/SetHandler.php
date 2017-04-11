@@ -33,6 +33,7 @@ class SetHandler extends AbstractSetHandler
         SettingsRepository $settings
     ) {
         parent::__construct($container);
+        $this->messages->push($this->translator->trans('baidu::setting.success'));
         $this->settings = $settings;
     }
 
@@ -47,18 +48,6 @@ class SetHandler extends AbstractSetHandler
     }
 
     /**
-     * Errors for handler.
-     *
-     * @return array
-     */
-    public function errors()
-    {
-        return [
-            '修改设置失败！',
-        ];
-    }
-
-    /**
      * Execute Handler.
      *
      * @return bool
@@ -69,17 +58,5 @@ class SetHandler extends AbstractSetHandler
         $this->settings->set('baidu.token', $this->request->input('token'));
 
         return true;
-    }
-
-    /**
-     * Messages for handler.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            '修改设置成功!',
-        ];
     }
 }

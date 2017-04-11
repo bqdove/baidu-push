@@ -31,7 +31,6 @@ class GetHandler extends DataHandler
     public function __construct(Container $container, SettingsRepository $settings)
     {
         parent::__construct($container);
-        $this->messages->push($this->translator->trans('获取百度配置成功！'));
         $this->settings = $settings;
     }
 
