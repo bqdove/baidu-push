@@ -15,6 +15,7 @@ return [
             'open'  => 'Open',
         ],
         'token' => [
+            'error'       => 'Token can not be empty!',
             'label'       => 'Token',
             'placeholder' => 'Place input token',
         ],

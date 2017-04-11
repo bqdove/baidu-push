@@ -15,10 +15,11 @@ return [
             'open'  => '开启',
         ],
         'token' => [
+            'error'       => 'Token不能为空！',
             'label'       => 'Token',
             'placeholder' => '请输入Token',
         ],
     ],
-    'success'  => '更新百度推送推送设置成功！',
+    'success'  => '更新百度推送设置成功！',
     'title'    => '百度推送配置',
 ];
