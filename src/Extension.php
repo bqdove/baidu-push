@@ -11,6 +11,10 @@ namespace Notadd\Baidu;
 use Illuminate\Events\Dispatcher;
 use Notadd\Baidu\Listeners\CsrfTokenRegister;
 use Notadd\Baidu\Listeners\RouteRegister;
+use Notadd\Baidu\Observers\ArticleObserver;
+use Notadd\Baidu\Observers\PageObserver;
+use Notadd\Content\Models\Article;
+use Notadd\Content\Models\Page;
 use Notadd\Foundation\Extension\Abstracts\Extension as AbstractExtension;
 
 /**
@@ -29,6 +33,9 @@ class Extension extends AbstractExtension
         $this->publishes([
             realpath(__DIR__ . '/../resources/mixes/administration/dist/assets/extensions/baidu-push') => public_path('assets/extensions/baidu-push'),
         ], 'public');
+
+        class_exists(Article::class) && Article::observe(ArticleObserver::class);
+        class_exists(Page::class) && Page::observe(PageObserver::class);
     }
 
     /**
