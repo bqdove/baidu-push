@@ -69,7 +69,7 @@ class ArticleObserver
             );
             curl_setopt_array($ch, $options);
             $result = curl_exec($ch);
-            $this->log->info('推送文章至百度搜索引擎', json_decode($result, true));
+            $this->log->info('推送文章至百度搜索引擎', (array)json_decode($result, true));
         }
     }
 }
