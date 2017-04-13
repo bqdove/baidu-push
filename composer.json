@@ -20,6 +20,6 @@
         "php": ">=7.0"
     },
     "require-dev": {
-        "notadd/installers": "0.2.*"
+        "notadd/installers": "0.5.*"
     }
 }
