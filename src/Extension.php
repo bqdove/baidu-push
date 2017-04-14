@@ -45,7 +45,7 @@ class Extension extends AbstractExtension
      */
     public static function description()
     {
-        return 'Extension of Baidu';
+        return '百度推送的配置和管理。';
     }
 
     /**
@@ -67,7 +67,7 @@ class Extension extends AbstractExtension
      */
     public static function name()
     {
-        return 'notadd/baidu-push';
+        return '百度推送';
     }
 
     /**
