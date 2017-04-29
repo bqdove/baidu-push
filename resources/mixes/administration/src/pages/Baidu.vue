@@ -63,7 +63,7 @@
         <p slot="title">{{ trans('baidu.setting.title') }}</p>
         <i-form :label-width="200" :model="form" ref="form" :rules="rules">
             <row>
-                <i-col span="14">
+                <i-col span="12">
                     <form-item :label="trans('baidu.setting.opinions.open.label')">
                         <i-switch v-model="form.enabled" size="large">
                             <span slot="open">{{ trans('baidu.setting.opinions.open.open') }}</span>
@@ -73,14 +73,14 @@
                 </i-col>
             </row>
             <row>
-                <i-col span="14">
+                <i-col span="12">
                     <form-item :label="trans('baidu.setting.opinions.token.label')" prop="token">
                         <i-input :placeholder="trans('baidu.setting.opinions.token.placeholder')" v-model="form.token"></i-input>
                     </form-item>
                 </i-col>
             </row>
             <row>
-                <i-col span="14">
+                <i-col span="12">
                     <form-item>
                         <i-button :loading="loading" type="primary" @click.native="submit">
                             <span v-if="!loading">{{ trans('baidu.setting.submit') }}</span>
