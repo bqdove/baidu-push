@@ -16,6 +16,11 @@
             "Notadd\\Baidu\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Notadd\\Baidu\\Tests\\": "tests/"
+        }
+    },
     "require": {
         "php": ">=7.0",
         "phpunit/phpunit": "~5.7"
