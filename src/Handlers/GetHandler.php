@@ -43,7 +43,7 @@ class GetHandler extends Handler
     {
         $this->success()->withData([
             'enabled' => $this->settings->get('baidu.enabled', false),
-            'token' => $this->settings->get('baidu.token', ''),
+            'token'   => $this->settings->get('baidu.token', ''),
         ])->withMessage('获取百度推送配置成功！');
     }
 }
