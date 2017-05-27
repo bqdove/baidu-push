@@ -13,7 +13,7 @@
 ```bash
 cd notadd/extensions
 git clone https://github.com/notadd/baidu-push.git
-cd content
+cd baidu-push
 composer install --no-dev
 ```
 
