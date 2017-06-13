@@ -41,7 +41,7 @@ class GetHandler extends Handler
      */
     protected function execute()
     {
-        $this->success()->withData([
+        $this->withCode(200)->withData([
             'enabled' => $this->settings->get('baidu.enabled', false),
             'token'   => $this->settings->get('baidu.token', ''),
         ])->withMessage('获取百度推送配置成功！');
