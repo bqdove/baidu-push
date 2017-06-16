@@ -9,13 +9,13 @@
 namespace Notadd\Baidu\Handlers;
 
 use Illuminate\Container\Container;
-use Notadd\Foundation\Passport\Abstracts\SetHandler as AbstractSetHandler;
+use Notadd\Foundation\Routing\Abstracts\Handler;
 use Notadd\Foundation\Setting\Contracts\SettingsRepository;
 
 /**
  * Class ConfigurationHandler.
  */
-class SetHandler extends AbstractSetHandler
+class SetHandler extends Handler
 {
     /**
      * @var \Notadd\Foundation\Setting\Contracts\SettingsRepository
@@ -28,35 +28,18 @@ class SetHandler extends AbstractSetHandler
      * @param \Illuminate\Container\Container                         $container
      * @param \Notadd\Foundation\Setting\Contracts\SettingsRepository $settings
      */
-    public function __construct(
-        Container $container,
-        SettingsRepository $settings
-    ) {
+    public function __construct(Container $container, SettingsRepository $settings) {
         parent::__construct($container);
-        $this->messages->push($this->translator->trans('baidu::setting.success'));
         $this->settings = $settings;
     }
 
     /**
-     * Data for handler.
-     *
-     * @return array
-     */
-    public function data()
-    {
-        return $this->settings->all()->toArray();
-    }
-
-    /**
      * Execute Handler.
-     *
-     * @return bool
      */
     public function execute()
     {
         $this->settings->set('baidu.enabled', $this->request->input('enabled'));
         $this->settings->set('baidu.token', $this->request->input('token'));
-
-        return true;
+        $this->withCode(200)->withMessage('baidu::setting.success');
     }
 }
